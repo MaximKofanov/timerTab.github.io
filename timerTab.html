@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>timerTab</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+  #code{
+    color: #D0423E;
+  }
+</style>    
+</head>
+<body>
+  
+  <div class="wrapper">
+    <p>Закрыть новую вкладку через <input type="text" size="1" value="0" id="sec"> секунд</p>
+    <p>Получить код для консоли (F12) :
+    <input type="button" value="Получить код" id="butSec">
+    <p id="code"></p>    
+    <input type="text" id="text" value="Ссылка">
+    <input type="button" value="Открыть" id="button">
+  </div>
+
+<script>
+  $(function(){
+    
+    
+    $('#butSec').click(function(){
+      var sec = $('#sec').val();
+      if(sec > 0){
+        $('#code').html('setTimeout(function(){window.close();},'+(sec+'000')+');');        
+      }else{
+        $('#code').html('Вы не ввели секунды');
+      }
+    });
+    
+    $('#button').click(function(){
+      var text = $('#text').val();
+      window.open(text);
+    });
+    
+  });
+</script>  
+</body>
+</html>
